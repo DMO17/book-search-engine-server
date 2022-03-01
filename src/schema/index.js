@@ -21,7 +21,7 @@ const typeDefs = gql`
 
   type Query {
     searchBooks(searchTerm: String!): [Book]
-    savedBooks(username: String!): [User]
+    savedBooks(username: String!, bookId: String!): User
   }
 `;
 

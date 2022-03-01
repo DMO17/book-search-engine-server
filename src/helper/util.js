@@ -7,13 +7,6 @@ const getBookData = async (searchBook) => {
 
   const { data } = await axios.get(url);
 
-  if (!data) {
-    console.log("[ERROR]: Search Term resulted in no data from api");
-    return res
-      .status(400)
-      .json({ success: false, message: "Failed to search for books " });
-  }
-
   const bookData = data.items.map(({ id, volumeInfo, searchInfo }) => ({
     id,
     title: volumeInfo?.title,
