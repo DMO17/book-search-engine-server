@@ -14,9 +14,14 @@ const typeDefs = gql`
     description: String
   }
 
+  type User {
+    username: String
+    books: [Book]
+  }
+
   type Query {
-    searchBooks: [Book]
-    savedBooks: [Book]
+    searchBooks: [User]
+    savedBooks(username: String!): [Book]
   }
 `;
 

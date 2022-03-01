@@ -2,12 +2,12 @@ const { model, Schema } = require("mongoose");
 const bookSchema = require("./Book");
 
 const userSchema = {
-  name: {
+  username: {
     type: String,
     required: true,
     maxLength: 200,
   },
-  savedBooks: [bookSchema],
+  books: [bookSchema],
 };
 
 const schema = new Schema(userSchema);

@@ -1,4 +1,12 @@
+const { ApolloServer } = require("apollo-server");
 const mongoose = require("mongoose");
+const resolvers = require("./resolvers");
+const typeDefs = require("./schema");
+
+const server = new ApolloServer({
+  typeDefs,
+  resolvers,
+});
 
 const init = async () => {
   try {
@@ -7,6 +15,9 @@ const init = async () => {
       useUnifiedTopology: true,
     });
     console.log("[INFO] : Successfully connected to db");
+
+    const { url } = await server.listen();
+    console.log(`server running at ${url}`);
   } catch (error) {
     console.log(`[ERROR] :  Connection to db has failed | ${error.message}`);
   }
