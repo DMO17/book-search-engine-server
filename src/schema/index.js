@@ -20,8 +20,8 @@ const typeDefs = gql`
   }
 
   type Query {
-    searchBooks: [User]
-    savedBooks(username: String!): [Book]
+    searchBooks(searchTerm: String!): [Book]
+    savedBooks(username: String!): [User]
   }
 `;
 
