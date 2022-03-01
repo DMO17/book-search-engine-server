@@ -19,6 +19,7 @@
   },
   "homepage": "https://github.com/DMO17/book-search-engine-server#readme",
   "dependencies": {
+    "axios": "^0.26.0",
     "express": "^4.17.3",
     "mongoose": "^6.2.3"
   },

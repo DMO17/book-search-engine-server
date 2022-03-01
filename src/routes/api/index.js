@@ -8,7 +8,7 @@ const {
 
 const router = Router();
 
-router.get("/books", searchForABook);
+router.post("/books", searchForABook);
 router.put("/books/:bookId", saveBookToFavourites);
 router.delete("/books/:bookId", deleteBookFromFavourites);
 

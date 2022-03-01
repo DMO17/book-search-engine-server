@@ -19,7 +19,9 @@ const init = async () => {
     });
     console.log("[INFO] : Successfully connected to db");
 
-    app.listen(PORT, () => console.log(`[INFO] : server running on ${PORT}`));
+    app.listen(PORT, () =>
+      console.log(`[INFO] : server running on  http://localhost:${PORT}`)
+    );
   } catch (error) {
     console.log(`[ERROR] :  Connection to db has failed | ${error.message}`);
   }
