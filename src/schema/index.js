@@ -21,7 +21,15 @@ const typeDefs = gql`
 
   type Query {
     searchBooks(searchTerm: String!): [Book]
-    savedBooks(username: String!, bookId: String!): User
+  }
+
+  input UserBooks {
+    username: String!
+    bookId: String!
+  }
+
+  type Mutation {
+    savedBooks(input: UserBooks): User
   }
 `;
 

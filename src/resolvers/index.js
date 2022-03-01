@@ -4,6 +4,8 @@ const searchBooks = require("./searchBooks");
 const resolvers = {
   Query: {
     searchBooks,
+  },
+  Mutation: {
     savedBooks,
   },
 };
