@@ -1,17 +1,19 @@
 const { getBookData } = require("../helper/util");
 const { User } = require("../models");
 
-const savedBooks = async (_, { input: { username, bookId } }) => {
+const deleteBook = async (_, { input: { username, bookId } }) => {
   try {
     const book = await getBookData(bookId);
 
     const addBookToUserCollection = await User.findOneAndUpdate(
       { name: username },
       {
-        $push: { books: book[0] },
+        $pull: { books: { id: bookId } },
       },
       { new: true }
     );
+
+    console.log(username, bookId);
 
     return addBookToUserCollection;
   } catch (error) {
@@ -21,4 +23,4 @@ const savedBooks = async (_, { input: { username, bookId } }) => {
   }
 };
 
-module.exports = savedBooks;
+module.exports = deleteBook;

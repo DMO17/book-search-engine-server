@@ -1,3 +1,4 @@
+const deleteBook = require("./deleteBook");
 const savedBooks = require("./savedBooks");
 const searchBooks = require("./searchBooks");
 
@@ -7,6 +8,7 @@ const resolvers = {
   },
   Mutation: {
     savedBooks,
+    deleteBook,
   },
 };
 

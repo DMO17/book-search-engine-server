@@ -30,6 +30,7 @@ const typeDefs = gql`
 
   type Mutation {
     savedBooks(input: UserBooks): User
+    deleteBook(input: UserBooks): User
   }
 `;
 
