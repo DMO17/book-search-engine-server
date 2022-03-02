@@ -24,8 +24,8 @@ const typeDefs = gql`
   }
 
   input UserBooks {
-    username: String!
-    bookId: String!
+    username: String
+    bookId: String
   }
 
   type Mutation {
