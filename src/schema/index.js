@@ -21,6 +21,7 @@ const typeDefs = gql`
 
   type Query {
     searchBooks(searchTerm: String!): [Book]
+    getUsersSavedBooks(username: String!): User
   }
 
   input UserBooks {

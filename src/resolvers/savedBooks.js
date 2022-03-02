@@ -6,7 +6,7 @@ const savedBooks = async (_, { input: { username, bookId } }) => {
     const book = await getBookData(bookId);
     console.log(book[0]);
     const addBookToUserCollection = await User.findOneAndUpdate(
-      { name: username },
+      { username: username },
       {
         $push: { books: book[0] },
       },
