@@ -31,6 +31,10 @@ schema.pre("save", async function (next) {
   next();
 });
 
+schema.methods.checkPassword = async function (password) {
+  return bcrypt.compare(password, this.password);
+};
+
 const User = model("users", schema);
 
 module.exports = User;

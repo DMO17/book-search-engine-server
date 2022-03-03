@@ -1,11 +1,13 @@
 const { ApolloServer } = require("apollo-server");
 const mongoose = require("mongoose");
+const { authMiddleware } = require("./helper/authUtil");
 const resolvers = require("./resolvers");
 const typeDefs = require("./schema");
 
 const server = new ApolloServer({
   typeDefs,
   resolvers,
+  context: authMiddleware,
 });
 
 const init = async () => {

@@ -45,7 +45,7 @@ const typeDefs = gql`
 
   input UserLoginInput {
     email: String
-    Password: String
+    password: String
   }
 
   type Mutation {
