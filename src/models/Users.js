@@ -5,6 +5,16 @@ const userSchema = {
   username: {
     type: String,
     required: true,
+    minLength: 5,
+  },
+  email: {
+    type: String,
+    required: true,
+    maxLength: 200,
+  },
+  password: {
+    type: String,
+    required: true,
     maxLength: 200,
   },
   books: [bookSchema],

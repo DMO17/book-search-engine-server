@@ -40,7 +40,7 @@ const typeDefs = gql`
   input AddUserInput {
     username: String
     email: String
-    Password: String
+    password: String
   }
 
   input UserLoginInput {
