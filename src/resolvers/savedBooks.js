@@ -1,8 +1,15 @@
+const { AuthenticationError } = require("apollo-server");
 const { getBookData } = require("../helper/util");
 const { User } = require("../models");
 
-const savedBooks = async (_, { input: { username, bookId } }) => {
+const savedBooks = async (_, { input: { username, bookId } }, context) => {
   try {
+    if (!context.user) {
+      throw new AuthenticationError(
+        "You are not Authorized to perform this operation"
+      );
+    }
+
     const book = await getBookData(bookId);
     console.log(book[0]);
     const addBookToUserCollection = await User.findOneAndUpdate(
