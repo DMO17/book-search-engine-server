@@ -13,7 +13,7 @@ const deleteBook = async (_, { input: { username, bookId } }, context) => {
     const book = await getBookData(bookId);
 
     const addBookToUserCollection = await User.findOneAndUpdate(
-      { name: username },
+      { username: username },
       {
         $pull: { books: { id: bookId } },
       },

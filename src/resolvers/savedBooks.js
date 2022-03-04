@@ -11,7 +11,7 @@ const savedBooks = async (_, { input: { username, bookId } }, context) => {
     }
 
     const book = await getBookData(bookId);
-    console.log(book[0]);
+
     const addBookToUserCollection = await User.findOneAndUpdate(
       { username: username },
       {
