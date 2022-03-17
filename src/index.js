@@ -12,13 +12,16 @@ const server = new ApolloServer({
 
 const init = async () => {
   try {
-    await mongoose.connect("mongodb://localhost:27017/googleBooks", {
-      useNewUrlParser: true,
-      useUnifiedTopology: true,
-    });
+    await mongoose.connect(
+      process.env.MONGODB_URL || "mongodb://localhost:27017/googleBooks",
+      {
+        useNewUrlParser: true,
+        useUnifiedTopology: true,
+      }
+    );
     console.log("[INFO] : Successfully connected to db");
 
-    const { url } = await server.listen();
+    const { url } = await server.listen({ port: process.env.PORT || 4000 });
     console.log(`server running at ${url}`);
   } catch (error) {
     console.log(`[ERROR] :  Connection to db has failed | ${error.message}`);
