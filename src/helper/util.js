@@ -1,0 +1,26 @@
+const axios = require("axios");
+
+const getBookData = async (searchBook) => {
+  const url = `https://www.googleapis.com/books/v1/volumes?q=${encodeURI(
+    searchBook
+  )}`;
+
+  const { data } = await axios.get(url);
+
+  const bookData = data.items.map(({ id, volumeInfo, searchInfo }) => ({
+    id,
+    title: volumeInfo?.title,
+    authors: volumeInfo?.authors,
+    pageCount: volumeInfo?.pageCount,
+    imageUrl: volumeInfo?.imageLinks?.thumbnail,
+    publishDate: volumeInfo?.publishedDate,
+    categories: volumeInfo?.categories,
+    rating: volumeInfo?.averageRating,
+    previewUrl: volumeInfo?.previewLink,
+    description: searchInfo?.textSnippet,
+  }));
+
+  return bookData;
+};
+
+module.exports = { getBookData };
